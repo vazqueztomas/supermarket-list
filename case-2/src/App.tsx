@@ -15,18 +15,27 @@ function App() {
 
   function handleToggle(id: Item["id"]) {
     // Should implement
+    let finish = items.find(item => item.id == id);
+    if (finish?.completed == true) {
+      setItems([...items, finish.completed = false]);
+    } else {
+      setItems([...items, finish.completed = true]);
+
+    }
   }
 
   function handleAdd(event: React.ChangeEvent<Form>) {
     event.preventDefault();
-
-    setItems((items) =>
+    if (event.target.text.value !== ''){
+      setItems((items) =>
       items.concat({
         id: +new Date(),
         completed: false,
         text: event.target.text.value,
       }),
     );
+    }
+    
 
     event.target.text.value = "";
   }
@@ -47,7 +56,7 @@ function App() {
   return (
     <main className={styles.main}>
       <h1>Supermarket list</h1>
-      <form onSubmit={handleAdd}>
+      <form onSubmit={() => handleAdd}>
         <input name="text" type="text" />
         <button>Add</button>
       </form>
