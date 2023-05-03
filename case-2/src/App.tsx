@@ -15,22 +15,26 @@ function App() {
 
   function handleToggle(id: Item["id"]) {
     // Should implement
-    setItems((item) => item.map(item => item.id == id ? {...item, completed: !item.completed} : item))
+    setItems((item) =>
+      item.map((item) => (item.id == id ? {...item, completed: !item.completed} : item)),
+    );
   }
 
   function handleAdd(event: React.ChangeEvent<Form>) {
     event.preventDefault();
     if (event.target.text.value !== "") {
-      setItems(
-        items.concat({
-          id: +new Date(),
-          completed: false,
-          text: event.target.text.value,
-        }),
-      );
+      setTimeout(() => {
+        setItems(
+          items.concat({
+            id: +new Date(),
+            completed: false,
+            text: event.target.text.value,
+          }),
+        );
+        event.target.text.value = "";
+      }, 1000)
     }
 
-    event.target.text.value = "";
   }
 
   function handleRemove(id: Item["id"]) {
