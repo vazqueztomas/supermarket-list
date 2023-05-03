@@ -6,7 +6,7 @@
 
 ## Nivel 2
 
-- [] Se agregan elementos vacíos a pesar de tener todo bien
+- [x] Se agregan elementos vacíos a pesar de tener todo bien
 
 ## Nivel 3
 
@@ -14,4 +14,4 @@
 
 ## Extra
 
-- [ ] Quiero simular un delay en la carga de datos de 1 segundo
+- [x] Quiero simular un delay en la carga de datos de 1 segundo
