@@ -23,7 +23,6 @@ function App() {
   function handleAdd(event: React.ChangeEvent<Form>) {
     event.preventDefault();
     if (event.target.text.value !== "") {
-      setTimeout(() => {
         setItems(
           items.concat({
             id: +new Date(),
@@ -31,9 +30,8 @@ function App() {
             text: event.target.text.value,
           }),
         );
-        event.target.text.value = "";
-      }, 1000)
-    }
+      }
+      event.target.text.value = "";
 
   }
 
